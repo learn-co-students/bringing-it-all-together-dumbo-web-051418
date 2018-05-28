@@ -137,6 +137,12 @@ describe "Dog" do
       expect(teddy_from_db.id).to eq(1)
       expect(teddy_from_db).to be_an_instance_of(Dog)
     end
+
+    it 'returns nil when no dog is found from the DB' do
+      biscuit_from_db = Dog.find_by_name("Biscuit")
+
+      expect(biscuit_from_db).to eq(nil)
+    end
   end
 
   describe '#update' do
